@@ -1,0 +1,28 @@
+{
+  "name": "simple-address-book",
+  "version": "1.0.0",
+  "authors": [
+    "Vadasz Laszlo <maxinteger@gmail.com>"
+  ],
+  "description": "Simple Adress Book Application",
+  "main": "app/main.js",
+  "keywords": [
+    "address",
+    "book",
+    "angular"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15",
+    "bootstrap": "~3.3.4",
+    "lodash": "~3.6.0"
+  }
+}
