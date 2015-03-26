@@ -23,6 +23,9 @@ It has a very simple static node server.
 ##Open in browser
  `http://localhost:3000/index.html` or use this link: [Simple Address Book](http://localhost:3000/index.html)
 
+##Development
+Tested with newest Firefox and Chrome on Linux
+
 ##Next step
 - Write unit and e2e tests
 - Change storage from localStorage to Firebase or MongoDB
