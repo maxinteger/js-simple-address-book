@@ -1,0 +1,18 @@
+<div ng-controller="ContactListController as ContactCtrl">
+    <h2>Contacts</h2>
+
+    <div ng-repeat=" (letter, list) in ContactCtrl.contacts ">
+        <h3>{{ letter | uppercase }}</h3>
+        <div class="list-group" >
+            <a class="list-group-item"
+               ng-repeat=" contact in list | orderBy : 'name' "
+               ng-href="#/contact/{{ contact.id}}"
+               ng-class="{active : ContactCtrl.selectedId === contact.id }"
+            >{{ contact.name }}</a>
+        </div>
+    </div>
+
+    <div ng-if="!ContactCtrl.contacts" class="alert alert-info" role="alert">
+        <b>No contacts</b>
+    </div>
+</div>

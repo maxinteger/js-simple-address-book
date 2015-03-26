@@ -7,6 +7,7 @@
     "window": false,
     "document": false,
     "navigator": false,
+    "confirm": false,
     "console": false,
     "_": false,
     "angular": false

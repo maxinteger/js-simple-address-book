@@ -1,0 +1,101 @@
+<h2><small>Edit</small> {{ EditCtrl.contact.name || 'Anonymous' }}</h2>
+<form novalidate name="form">
+    <div class="form-group">
+        <label for="userName">Name</label>
+        <input type="text" name="name" class="form-control" id="userName" placeholder="Contact name..." ng-model="EditCtrl.contact.name" required>
+        <div class="help-block" ng-show="form.$submitted || form.name.$touched">
+            <div class="text-danger" ng-show="form.name.$error.required">What is your contact's name?</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Phone</label>
+        <div class="row contact-info-row" ng-repeat="phone in EditCtrl.contact.phone ">
+
+            <div class="col-xs-3">
+                <select class="form-control" ng-options="val for val in EditCtrl.labels" ng-model="phone.label"></select>
+            </div>
+            <div class="col-xs-8">
+                <input type="text" name="phone-{{$index}}" pattern="^(\d|-|\s|/)+$" class="form-control"  ng-model="phone.value" placeholder="Phone number..." required>
+                <div class="help-block" ng-show="form.$submitted || form['phone-' + $index].$touched">
+                    <div class="text-danger" ng-show="form['phone-' + $index].$error.required">What is your contact's phone number?</div>
+                    <div class="text-danger" ng-show="form['phone-' + $index].$error.pattern">Sorry, but is not a valid phone number?</div>
+                </div>
+            </div>
+            <button type="button"
+                    title="Remove this phone number"
+                    class="btn btn-link"
+                    tabindex="2"
+                    ng-click="EditCtrl.removePhone($index)">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+            </button>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="button"
+                title="Add new phone number field"
+                class="btn btn-default btn-sm"
+                ng-click="EditCtrl.addPhone()">
+            <i class="glyphicon glyphicon-plus-sign"></i> Add Phone
+        </button>
+    </div>
+
+    <hr/>
+
+    <div class="form-group">
+        <label>Email</label>
+        <div class="row contact-info-row" ng-repeat="email in EditCtrl.contact.email ">
+            <div class="col-xs-3">
+                <select class="form-control"  ng-options="val for val in EditCtrl.labels" ng-model="email.label"> </select>
+            </div>
+            <div class="col-xs-8">
+                <input type="email" name="email-{{$index}}" class="form-control" ng-model="email.value" placeholder="Email address..." required>
+                <div class="help-block" ng-show="form.$submitted || form['email-' + $index].$touched">
+                    <div class="text-danger" ng-show="form['email-' + $index].$error.required">What is your contact's email address?</div>
+                    <div class="text-danger" ng-show="form['email-' + $index].$error.email">Sorry, but it is not a valid email address?</div>
+                </div>
+            </div>
+            <button type="button"
+                    title="Remove this email address"
+                    class="btn btn-link"
+                    tabindex="1"
+                    ng-click="EditCtrl.removeEmail($index)">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+            </button>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="button"
+                title="Add new email address field"
+                class="btn btn-default btn-sm"
+                ng-click="EditCtrl.addEmail()" >
+            <i class="glyphicon glyphicon-plus-sign"></i> Add Email
+        </button>
+    </div>
+
+    <div class="form-group text-right">
+
+        <button type="button"
+                title="Delete contact"
+                class="btn btn-danger btn-link"
+                ng-click="EditCtrl.remove()">
+            Delete
+        </button>
+
+        <button type="button"
+                title="Reload the latest saved state"
+                class="btn btn-default"
+                ng-click="EditCtrl.reset()">
+            <i class="glyphicon glyphicon-repeat"></i> Reset
+        </button>
+
+        <button type="submit"
+                title="Save contact"
+                class="btn btn-primary"
+                ng-disabled="form.$invalid"
+                ng-click="EditCtrl.save()">
+            <i class="glyphicon glyphicon-save"></i> Save
+        </button>
+
+    </div>
+</form>
