@@ -20,7 +20,8 @@ It has a very simple static node server.
 
     npm server.js
 
-[Simple Address Book](http://localhost:3000/index.html)
+##Open in browser
+ `http://localhost:3000/index.html` or use this link: [Simple Address Book](http://localhost:3000/index.html)
 
 ##Next step
 - Write unit and e2e tests
