@@ -18,7 +18,7 @@ It has a very simple static node server.
 
 ##Run:
 
-    npm server.js
+    node server.js
 
 ##Open in browser
  `http://localhost:3000/index.html` or use this link: [Simple Address Book](http://localhost:3000/index.html)
